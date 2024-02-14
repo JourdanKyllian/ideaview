@@ -16,7 +16,7 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/inscription")
+    @PostMapping("/dashboard/register")
     public void recupFormRegister() {
         System.out.println(userService.getAll());
     }
