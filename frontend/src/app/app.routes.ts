@@ -5,11 +5,16 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 export const routes: Routes = [
     { //page accueil(home-page)
         path: '',
-        component: HomePageComponent
+        component: HomePageComponent,
+    },
+
+    {
+        path: ':id',
+        component: HomePageComponent,
     },
 
     { //page du 404(not-found)
         path: '**',
-        component: NotFoundComponent
+        component: NotFoundComponent,
     }
 ];

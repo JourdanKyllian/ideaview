@@ -1,7 +1,8 @@
 <p class="maClasse">
-    mon compteur vaut: {{compteur}}
+    mon compteur home vaut: {{compteur}}
 </p>
-<app-compteur [tuyauxCompteur]="compteur"></app-compteur>
+<app-compteur [tuyauxCompteur]="compteur" />
+<app-user-displayer [tuyauxUsers]="users" />
 <div>
     <button (click)="incrementerCompteur()">Clique moi</button>
 </div>
