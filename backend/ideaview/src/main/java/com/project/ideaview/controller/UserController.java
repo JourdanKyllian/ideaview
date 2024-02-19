@@ -1,11 +1,9 @@
 package com.project.ideaview.controller;
 
+import com.project.ideaview.model.User;
 import com.project.ideaview.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -19,7 +17,8 @@ public class UserController {
     }
 
     @PostMapping("/dashboard/register")
-    public void recupFormRegister() {
-        System.out.println(userService.getAll());
+    public User recupFormRegister(@ModelAttribute User user) {
+        this.userService.saveUser(user);
+        return user;
     }
 }

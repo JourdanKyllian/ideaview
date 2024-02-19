@@ -18,7 +18,6 @@ public class TaskController {
         return "task";
     }
 
-
     @PostMapping("/dashboard/task")
     public void recupTask() {
         System.out.println(taskService.getAll());
