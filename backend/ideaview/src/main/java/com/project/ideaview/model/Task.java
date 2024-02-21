@@ -9,6 +9,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "task")
 public class Task {
+    public Task() {
+        this.active = true;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
@@ -27,4 +31,7 @@ public class Task {
 
     @Column(name = "end_date_task", columnDefinition = "VARCHAR(255)")
     private String endDateTask;
+
+    @Column(name = "active", columnDefinition = "Boolean")
+    private Boolean active;
 }
