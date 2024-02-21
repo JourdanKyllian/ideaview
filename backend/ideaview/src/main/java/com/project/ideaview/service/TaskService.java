@@ -5,7 +5,6 @@ import com.project.ideaview.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,11 +16,14 @@ public class TaskService {
         return this.taskRepository.findAll();
     }
 
-    public Task save(Task task){
+    /**
+     * Méthode qui permet de faire l'ajout et la modification<br>
+     * - l'ajout : id = null <br>
+     * - modification : id != null
+     * @param task
+     * @return
+     */
+    public Task saveTask(Task task){
         return this.taskRepository.save(task);
-    }
-
-    public Task byId(Integer id){
-        return this.taskRepository.findById(id).orElse(new Task());
     }
 }

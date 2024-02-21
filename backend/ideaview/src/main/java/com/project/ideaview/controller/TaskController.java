@@ -18,17 +18,9 @@ public class TaskController {
         return this.taskService.getAll();
     }
 
-    @DeleteMapping("/task/{id}")
-    public Task deleteTask(@PathVariable Integer id){
-        Task task = this.taskService.byId(id);
-        task.setActive(!task.isActive());
-        this.taskService.save(task);
-        return task;
-    }
-
     @PostMapping("/dashboard/task")
     public Task recupFormArticle(@ModelAttribute Task task){
-        this.taskService.save(task);
+        this.taskService.saveTask(task);
         return task;
     }
 }
