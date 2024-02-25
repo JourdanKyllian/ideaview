@@ -26,4 +26,8 @@ public class UserService {
     public User saveUser(User user){
         return this.userRepository.save(user);
     }
+
+    public User byUserId(Integer id){
+        return this.userRepository.findById(id).orElse(new User());
+    }
 }

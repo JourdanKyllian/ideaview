@@ -33,7 +33,7 @@ public class User {
     private String password;
 
     @Column(name = "active", columnDefinition = "Boolean")
-    private Boolean active;
+    private boolean active;
 
     @Column(name = "role", columnDefinition = "VARCHAR(50)")
     private String role;
