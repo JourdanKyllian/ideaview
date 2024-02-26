@@ -30,4 +30,5 @@ public class UserService {
     public User byUserId(Integer id){
         return this.userRepository.findById(id).orElse(new User());
     }
+
 }

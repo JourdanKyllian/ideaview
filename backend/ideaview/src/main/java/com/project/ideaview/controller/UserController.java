@@ -19,7 +19,7 @@ public class UserController {
         return this.userService.getAll();
     }
 
-    @DeleteMapping("/task/{id}")
+    @DeleteMapping("/user/{id}")
     public User deleteTask(@PathVariable Integer id){
         User user = this.userService.byUserId(id);
         user.setActive(!user.isActive());
@@ -32,4 +32,11 @@ public class UserController {
         this.userService.saveUser(user);
         return user;
     }
+
+    @PatchMapping("/change/{id}")
+    public User recupFormRegister(@ModelAttribute User user, @PathVariable Integer id) {
+        user = this.userService.byUserId(id);
+        return user;
+    }
+
 }
