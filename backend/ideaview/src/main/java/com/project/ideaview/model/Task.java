@@ -33,5 +33,5 @@ public class Task {
     private String endDateTask;
 
     @Column(name = "active", columnDefinition = "Boolean")
-    private Boolean active;
+    private boolean active;
 }

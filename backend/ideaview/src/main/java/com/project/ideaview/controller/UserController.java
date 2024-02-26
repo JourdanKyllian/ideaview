@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{id}")
-    public User deleteTask(@PathVariable Integer id){
+    public User deleteUser(@PathVariable Integer id){
         User user = this.userService.byUserId(id);
         user.setActive(!user.isActive());
         this.userService.saveUser(user);
