@@ -28,6 +28,11 @@ public class TaskService {
         return this.taskRepository.save(task);
     }
 
+    /**
+     * recupere toute les tache d'un projet
+     * @param id
+     * @return
+     */
     public Task byUserIdTask(Integer id){
         return this.taskRepository.findById(id).orElse(new Task());
     }
