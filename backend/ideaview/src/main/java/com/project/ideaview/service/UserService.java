@@ -27,6 +27,11 @@ public class UserService {
         return this.userRepository.save(user);
     }
 
+    /**
+     * recupere toute les user d'un projet
+     * @param id
+     * @return
+     */
     public User byUserId(Integer id){
         return this.userRepository.findById(id).orElse(new User());
     }
