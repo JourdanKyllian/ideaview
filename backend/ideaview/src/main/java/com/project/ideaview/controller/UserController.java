@@ -19,13 +19,13 @@ public class UserController {
         return this.userService.getAll();
     }
 
-    @DeleteMapping("/user/{id}")
+    /*@DeleteMapping("/user/{id}")
     public User deleteUser(@PathVariable Integer id){
         User user = this.userService.byUserId(id);
         user.setActive(!user.isActive());
         this.userService.saveUser(user);
         return user;
-    }
+    } */
 
     @PostMapping("/dashboard/register")
     public User recupFormRegister(@ModelAttribute User user) {
@@ -33,10 +33,10 @@ public class UserController {
         return user;
     }
 
-    @PatchMapping("/change/{id}")
+    /*@PatchMapping("/change/{id}")
     public User recupFormRegister(@ModelAttribute User user, @PathVariable Integer id) {
         user = this.userService.byUserId(id);
         return user;
-    }
+    } */
 
 }

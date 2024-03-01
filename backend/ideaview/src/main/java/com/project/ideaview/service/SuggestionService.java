@@ -29,7 +29,12 @@ public class SuggestionService {
         return this.suggestionRepository.save(suggestion);
     }
 
-    public Suggestion byUserIdSuggestion(Integer id){
+    /**
+     * recupere toute les user d'un projet
+     * @param id
+     * @return
+     */
+    public Suggestion bySuggestionId(Integer id){
         return this.suggestionRepository.findById(id).orElse(new Suggestion());
     }
 }

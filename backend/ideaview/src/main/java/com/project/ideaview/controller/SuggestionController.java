@@ -23,7 +23,7 @@ public class SuggestionController {
 
     @DeleteMapping("/suggestion/{id}")
     public Suggestion deleteSuggestion(@PathVariable Integer id){
-        Suggestion suggestion = this.suggestionService.byUserIdSuggestion(id);
+        Suggestion suggestion = this.suggestionService.bySuggestionId(id);
         suggestion.setActive(!suggestion.isActive());
         this.suggestionService.saveSuggestion(suggestion);
         return suggestion;
