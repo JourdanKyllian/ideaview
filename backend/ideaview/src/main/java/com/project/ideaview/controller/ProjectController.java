@@ -1,9 +1,36 @@
 package com.project.ideaview.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import com.project.ideaview.model.Project;
+import com.project.ideaview.model.Task;
+import com.project.ideaview.service.ProjectService;
+import com.project.ideaview.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class ProjectController {
+    @Autowired
+    private ProjectService projectService;
+
+    @GetMapping("/project")
+    public List<Project> project(){
+        return this.projectService.getAllProject();
+    }
+
+    @DeleteMapping("/user/{id}")
+    public Project deleteTask(@PathVariable Integer id){
+        Project project = this.projectService.byUserIdProject(id);
+        project.setActive(!project.isActive());
+        this.projectService.saveProject(project);
+        return project;
+    }
+
+    @PostMapping("/dashboard/project")
+    public Project recupFormArticle(@ModelAttribute Project project){
+        this.projectService.saveProject(project);
+        return project;
+    }
 }

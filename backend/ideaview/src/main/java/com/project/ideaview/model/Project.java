@@ -9,6 +9,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "project")
 public class Project {
+    public Project() {
+        this.active = true;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
@@ -27,4 +31,7 @@ public class Project {
 
     @Column(name = "project_status", columnDefinition = "VARCHAR(255)")
     private String projectStatus;
+
+    @Column(name = "active", columnDefinition = "Boolean")
+    private boolean active;
 }
