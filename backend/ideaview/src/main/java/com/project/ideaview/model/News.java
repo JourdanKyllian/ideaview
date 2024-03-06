@@ -9,6 +9,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "news")
 public class News {
+    public News() {
+        this.active = true;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
@@ -18,4 +22,7 @@ public class News {
 
     @Column(name = "date_creation_news", columnDefinition = "VARCHAR(255)")
     private String dateCreationNews;
+
+    @Column(name = "active", columnDefinition = "Boolean")
+    private boolean active;
 }

@@ -1,7 +1,6 @@
 package com.project.ideaview.service;
 
 import com.project.ideaview.model.Task;
-import com.project.ideaview.model.User;
 import com.project.ideaview.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

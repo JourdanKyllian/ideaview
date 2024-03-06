@@ -1,6 +1,5 @@
 package com.project.ideaview.controller;
 
-import com.project.ideaview.model.Task;
 import com.project.ideaview.model.User;
 import com.project.ideaview.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +18,10 @@ public class UserController {
         return this.userService.getAll();
     }
 
-    /*@DeleteMapping("/user/{id}")
-    public User deleteUser(@PathVariable Integer id){
-        User user = this.userService.byUserId(id);
-        user.setActive(!user.isActive());
-        this.userService.saveUser(user);
-        return user;
-    } */
-
     @PostMapping("/dashboard/register")
     public User recupFormRegister(@ModelAttribute User user) {
         this.userService.saveUser(user);
         return user;
     }
-
-    /*@PatchMapping("/change/{id}")
-    public User recupFormRegister(@ModelAttribute User user, @PathVariable Integer id) {
-        user = this.userService.byUserId(id);
-        return user;
-    } */
 
 }
