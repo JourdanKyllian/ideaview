@@ -1,5 +1,6 @@
 package com.project.ideaview.service;
 
+import com.project.ideaview.model.Arborescence;
 import com.project.ideaview.repository.ArborescenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,11 @@ import java.util.List;
 public class ArborescenceService {
     @Autowired
     private ArborescenceRepository arborescenceRepository;
-    public List getAll(){
-        List<String> maReponse = new ArrayList<String>();
-        maReponse.add("ma reponse");
-        return maReponse ;
+    public List getAllArborescence(){
+        return this.arborescenceRepository.findAll();
+    }
+
+    public Arborescence saveArborescence(Arborescence arborescence){
+        return this.arborescenceRepository.save(arborescence);
     }
 }
