@@ -19,7 +19,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/user/{id}")
-    public Project deleteTask(@PathVariable Integer id){
+    public Project deleteProject(@PathVariable Integer id){
         Project project = this.projectService.byUserIdProject(id);
         project.setActive(!project.isActive());
         this.projectService.saveProject(project);
@@ -27,7 +27,7 @@ public class ProjectController {
     }
 
     @PostMapping("/dashboard/project")
-    public Project recupFormArticle(@ModelAttribute Project project){
+    public Project recupFormProject(@ModelAttribute Project project){
         this.projectService.saveProject(project);
         return project;
     }
