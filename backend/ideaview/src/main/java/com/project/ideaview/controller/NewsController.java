@@ -17,4 +17,18 @@ public class NewsController {
     public List<News> news(){
         return this.newsService.getAllNews();
     }
+
+    @DeleteMapping("/news/{id}")
+    public News deleteProject(@PathVariable Integer id){
+        News news = this.newsService.byUserIdNews(id);
+        news.setActive(!news.isActive());
+        this.newsService.saveNews(news);
+        return news;
+    }
+
+    @PostMapping("/dashboard/news")
+    public News recupFormNews(@ModelAttribute News news){
+        this.newsService.saveNews(news);
+        return news;
+    }
 }

@@ -18,7 +18,7 @@ public class ProjectController {
         return this.projectService.getAllProject();
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/project/{id}")
     public Project deleteProject(@PathVariable Integer id){
         Project project = this.projectService.byUserIdProject(id);
         project.setActive(!project.isActive());

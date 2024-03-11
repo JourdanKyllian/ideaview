@@ -15,4 +15,24 @@ public class NewsService {
     public List<News> getAllNews(){
         return this.newsRepository.findAll();
     }
+
+    /**
+     * Méthode qui permet de faire l'ajout et la modification<br>
+     * - l'ajout : id = null <br>
+     * - modification : id != null
+     * @param news
+     * @return
+     */
+    public News saveNews(News news){
+        return this.newsRepository.save(news);
+    }
+
+    /**
+     * recupere toute les tache d'un projet
+     * @param id
+     * @return
+     */
+    public News byUserIdNews(Integer id){
+        return this.newsRepository.findById(id).orElse(new News());
+    }
 }

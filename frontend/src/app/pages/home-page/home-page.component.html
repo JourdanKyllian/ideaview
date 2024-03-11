@@ -1,8 +1,11 @@
-<p class="maClasse">
+<h1 class="maClasse">
     mon compteur home vaut: {{compteur}}
-</p>
+</h1>
 <app-compteur [tuyauxCompteur]="compteur" />
-<app-user-displayer [tuyauxUsers]="users" />
 <div>
     <button (click)="incrementerCompteur()">Clique moi</button>
 </div>
+
+<app-user-displayer [tuyauxUsers]="users" />
+
+<img src="{{ imageUrl }}" alt="un machin">
