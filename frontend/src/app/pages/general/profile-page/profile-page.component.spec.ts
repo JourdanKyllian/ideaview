@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserIconComponent } from './user-icon.component';
+import { ProfilePageComponent } from './profile-page.component';
 
-describe('UserIconComponent', () => {
-  let component: UserIconComponent;
-  let fixture: ComponentFixture<UserIconComponent>;
+describe('ProfilePageComponent', () => {
+  let component: ProfilePageComponent;
+  let fixture: ComponentFixture<ProfilePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserIconComponent]
+      imports: [ProfilePageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UserIconComponent);
+    fixture = TestBed.createComponent(ProfilePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
