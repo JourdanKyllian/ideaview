@@ -1,0 +1,18 @@
+.activity-home{
+  background: #F8F9FA;
+  border-radius: 15px;
+  height: 90vh;
+  margin: 5vh 0 5vh 0;
+  padding: 1vh ;
+}
+
+.recent-home{
+  text-align: center;
+}
+
+.welcome{
+  height: 90vh;
+  width: 40vw;
+  margin: 5vh 0 5vh 0;
+  padding: 1vh ;
+}
