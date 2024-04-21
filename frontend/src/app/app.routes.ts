@@ -5,6 +5,11 @@ import {ProjectPageComponent} from "./pages/general/project-page/project-page.co
 import {TaskPageComponent} from "./pages/general/task-page/task-page.component";
 import {SuggestionPageComponent} from "./pages/general/suggestion-page/suggestion-page.component";
 import {HomePageComponent} from "./pages/general/home-page/home-page.component";
+import {SignupPageComponent} from "./pages/general/signup-page/signup-page.component";
+import {ActualityPageComponent} from "./pages/general/actuality-page/actuality-page.component";
+import {ChronologyPageComponent} from "./pages/general/chronology-page/chronology-page.component";
+import {NewprojectPageComponent} from "./pages/general/newproject-page/newproject-page.component";
+import {AddpersonPageComponent} from "./pages/general/addperson-page/addperson-page.component";
 
 export const routes: Routes = [
   {
@@ -26,6 +31,26 @@ export const routes: Routes = [
   {
     path: "task",
     component: TaskPageComponent
+  },
+  {
+    path: "connexion",
+    component: SignupPageComponent
+  },
+  {
+    path: "new-project",
+    component: NewprojectPageComponent
+  },
+  {
+    path: "chronology",
+    component: ChronologyPageComponent
+  },
+  {
+    path: "actuality",
+    component: ActualityPageComponent
+  },
+  {
+    path: "dashboard",
+    component: AddpersonPageComponent
   },
   {
     path: "**",

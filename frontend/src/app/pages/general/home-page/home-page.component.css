@@ -16,3 +16,19 @@
   margin: 5vh 0 5vh 0;
   padding: 1vh ;
 }
+
+. tailleimg{
+  width: 5vw;
+}
+
+.hi-placement{
+  margin-top: 20vh;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.gras{
+  font-weight: bold;
+}

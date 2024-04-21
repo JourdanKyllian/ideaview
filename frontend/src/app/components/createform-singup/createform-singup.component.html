@@ -1,0 +1,43 @@
+<form  class="row g-3" [formGroup]="mySignUpForm" novalidate>
+  <div class="col-md-6">
+    <label for="lastname" class="form-label">Nom</label>
+    <input type="text" class="form-control" id="lastname" formControlName="lastname">
+  </div>
+  <div class="col-md-6">
+    <label for="firstname" class="form-label">Prenom</label>
+    <input type="text" class="form-control" id="firstname" formControlName="firstname">
+  </div>
+  <div class="col-12">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+  </div>
+  <div class="col-12">
+    <label for="password" class="form-label">Mot de passe</label>
+    <input type="password" class="form-control" id="password" formControlName="password">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="statut" class="form-label">Statut</label>
+    <select id="statut" class="form-select" formControlName="statut">
+      <option selected>Choose...</option>
+      <option>devloppeur</option>
+      <option>graphiste</option>
+      <option>chef de projet</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Accepter les conditions
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    <pre>{{ mySignUpForm.value | json }}</pre>
+  </div>
+</form>
