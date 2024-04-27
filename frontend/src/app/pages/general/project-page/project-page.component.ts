@@ -5,7 +5,8 @@ import {ProjectSidebarComponent} from "../../../components/project-sidebar/proje
   selector: 'app-project-page',
   standalone: true,
   imports: [
-    ProjectSidebarComponent
+    ProjectSidebarComponent,
+
   ],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.css'
