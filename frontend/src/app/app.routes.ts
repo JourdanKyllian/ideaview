@@ -10,6 +10,7 @@ import {ChronologyPageComponent} from "./pages/general/chronology-page/chronolog
 import {NewprojectPageComponent} from "./pages/general/newproject-page/newproject-page.component";
 import {AddpersonPageComponent} from "./pages/general/addperson-page/addperson-page.component";
 import {ProfilesecuritePageComponent} from "./pages/general/profilesecurite-page/profilesecurite-page.component";
+import {LoginPageComponent} from "./pages/general/login-page/login-page.component";
 
 export const routes: Routes = [
   {
@@ -37,8 +38,12 @@ export const routes: Routes = [
     component: TaskPageComponent
   },
   {
-    path: "connexion",
+    path: "sign-up",
     component: SignupPageComponent
+  },
+  {
+    path: "login",
+    component: LoginPageComponent
   },
   {
     path: "new-project",
