@@ -5,6 +5,7 @@ import {PersonJobComponent} from "../../../components/person-job/person-job.comp
 import {PersonNumberComponent} from "../../../components/person-number/person-number.component";
 import {PersonEmailComponent} from "../../../components/person-email/person-email.component";
 import {RouterLink} from "@angular/router";
+import {ProfileNavComponent} from "../../../components/profile-nav/profile-nav.component";
 
 @Component({
   selector: 'app-profile-page',
@@ -15,7 +16,8 @@ import {RouterLink} from "@angular/router";
     PersonJobComponent,
     PersonNumberComponent,
     PersonEmailComponent,
-    RouterLink
+    RouterLink,
+    ProfileNavComponent
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.css'

@@ -1,0 +1,23 @@
+.activity-project{
+  background: #F8F9FA;
+  border-radius: 15px;
+  height: 90vh;
+  margin: 5vh 0 5vh 0;
+  padding: 1vh ;
+}
+
+.recent-project{
+  text-align: center;
+}
+
+.info-placement{
+  margin-top: 5vh;
+}
+
+.repository{
+  background: #F8F9FA;
+  border-radius: 15px;
+  height: 73vh;
+  margin: 5vh 0 0 0;
+  padding: 1vh;
+}
