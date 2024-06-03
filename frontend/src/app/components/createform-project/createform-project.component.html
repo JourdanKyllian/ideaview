@@ -1,19 +1,11 @@
 <form  class="row g-3" [formGroup]="myAddProjectForm" novalidate>
-  <div class="col-md-6">
-    <label for="lastname" class="form-label">Nom</label>
-    <input type="text" class="form-control" id="lastname" formControlName="lastname">
-  </div>
-  <div class="col-md-6">
-    <label for="firstname" class="form-label">Prenom</label>
-    <input type="text" class="form-control" id="firstname" formControlName="firstname">
+  <div class="col-md-12">
+    <label for="name" class="form-label">Nom du projet</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
   </div>
   <div class="col-12">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" formControlName="email">
-  </div>
-  <div class="col-12">
-    <label for="password" class="form-label">Mot de passe</label>
-    <input type="password" class="form-control" id="password" formControlName="password">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" formControlName="description" required maxlength="255" size="20">
   </div>
   <div class="col-md-6">
     <label for="inputCity" class="form-label">City</label>
