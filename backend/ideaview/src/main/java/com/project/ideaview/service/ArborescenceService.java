@@ -18,4 +18,8 @@ public class ArborescenceService {
     public Arborescence saveArborescence(Arborescence arborescence){
         return this.arborescenceRepository.save(arborescence);
     }
+
+    public void deleteArborescence(Integer id){
+        this.arborescenceRepository.deleteById(id);
+    }
 }
