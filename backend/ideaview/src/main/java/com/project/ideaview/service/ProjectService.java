@@ -36,4 +36,16 @@ public class ProjectService {
     public Project byUserIdProject(Integer id){
         return this.projectRepository.findById(id).orElse(new Project());
     }
+
+    /**
+     * methode qui delete un projet
+     * @param id
+     * @return
+     */
+    public Project deleteProject(Integer id){
+        Project project = this.projectRepository.findById(id).orElse(new Project());
+        project.setActive(!project.isActive());
+        this.projectRepository.save(project);
+        return project;
+    }
 }

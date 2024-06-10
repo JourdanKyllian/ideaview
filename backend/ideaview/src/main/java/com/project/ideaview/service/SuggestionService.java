@@ -18,7 +18,7 @@ public class SuggestionService {
     }
 
     /**
-     * Méthode qui permet de faire le register d'un user
+     * Méthode qui permet de faire l'ajout d'une suggestion<br>
      * @param suggestion
      * @return
      */
@@ -26,6 +26,13 @@ public class SuggestionService {
         return this.suggestionRepository.save(suggestion);
     }
 
+    /**
+     * Méthode qui permet de supprimer une suggestion
+     * @param suggestion
+     */
+    public void deleteSuggestion(Suggestion suggestion){
+        this.suggestionRepository.delete(suggestion);
+    }
     /**
      * recupere toute les user d'un projet
      * @param id

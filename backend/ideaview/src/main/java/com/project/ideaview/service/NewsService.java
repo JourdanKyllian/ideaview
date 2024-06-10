@@ -12,27 +12,26 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
-    public List<News> getAllNews(){
-        return this.newsRepository.findAll();
+    /**
+     * Méthode qui permet de faire l'ajout<br>
+     */
+    public void saveNews(News news){
+        this.newsRepository.save(news);
     }
 
     /**
-     * Méthode qui permet de faire l'ajout et la modification<br>
-     * - l'ajout : id = null <br>
-     * - modification : id != null
-     * @param news
+     * recupere toute les news d'un projet
      * @return
      */
-    public News saveNews(News news){
-        return this.newsRepository.save(news);
+    public List<News> getNewsByProject(News news){
+        return this.newsRepository.findById(projectId).orElse(null);
     }
 
     /**
-     * recupere toute les tache d'un projet
-     * @param id
+     * recupere toute les news d'un user
      * @return
      */
-    public News byUserIdNews(Integer id){
-        return this.newsRepository.findById(id).orElse(new News());
+    public List<News> getNewsByUser(News news){
+        return this.newsRepository.findById(userId).orElse(null);
     }
 }

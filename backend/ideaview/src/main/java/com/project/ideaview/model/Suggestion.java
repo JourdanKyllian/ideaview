@@ -26,7 +26,7 @@ public class Suggestion {
     @Column(name = "suggestion_status", columnDefinition = "VARCHAR(255)")
     private String statusSuggestion;
 
-    @Column(name = "date_creation_suggestion", columnDefinition = "VARCHAR(255)")
+    @Column(name = "date_creation_suggestion")
     private String dateCreationSuggestion;
 
     @Column(name = "active", columnDefinition = "Boolean")

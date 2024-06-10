@@ -7,28 +7,42 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/project")
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @GetMapping("/project")
-    public List<Project> project(){
-        return this.projectService.getAllProject();
-    }
-
+    /**
+     * methode qui supprime un projet
+     * @param id
+     * @return
+     */
     @DeleteMapping("/project/{id}")
     public Project deleteProject(@PathVariable Integer id){
-        Project project = this.projectService.byUserIdProject(id);
-        project.setActive(!project.isActive());
-        this.projectService.saveProject(project);
-        return project;
+        return this.projectService.deleteProject(id);
     }
 
+    /**
+     * Page qui permet de faire l'ajout et la modification<br>
+     * @param project
+     * @return
+     */
     @PostMapping("/dashboard/project")
     public Project recupFormProject(@ModelAttribute Project project){
         this.projectService.saveProject(project);
         return project;
     }
+
+    /**
+     * recupere tout les projets d'un utilisateur
+     * @param id
+     * @return
+     */
+    @GetMapping("/project/{id}")
+    public Project getProject(@PathVariable Integer id){
+        return this.projectService.byUserIdProject(id);
+    }
+
 }
