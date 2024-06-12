@@ -19,19 +19,19 @@ public class NewsService {
         this.newsRepository.save(news);
     }
 
-    /**
-     * recupere toute les news d'un projet
-     * @return
-     */
-    public List<News> getNewsByProject(News news){
-        return this.newsRepository.findById(projectId).orElse(null);
-    }
+//    /**
+//     * recupere toute les news d'un projet
+//     * @return
+//     */
+//    public List<News> getNewsByProject(Integer projectId){
+//        return this.newsRepository.findByProjectId(projectId);
+//    }
 
-    /**
-     * recupere toute les news d'un user
-     * @return
-     */
-    public List<News> getNewsByUser(News news){
-        return this.newsRepository.findById(userId).orElse(null);
-    }
+//    /**
+//     * recupere toute les news d'un user
+//     * @return
+//     */
+//    public List<News> getNewsByUsers(Integer usersId){
+//        return this.newsRepository.findByUsersId(usersId);
+//    }
 }

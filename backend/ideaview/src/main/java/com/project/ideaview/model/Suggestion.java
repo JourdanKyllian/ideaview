@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -16,19 +18,9 @@ public class Suggestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
-
-    @Column(name = "suggestion_object", columnDefinition = "VARCHAR(255)")
-    private String suggestionObject;
-
-    @Column(name = "suggestion_content", columnDefinition = "VARCHAR(255)")
-    private String contentSuggestion;
-
-    @Column(name = "suggestion_status", columnDefinition = "VARCHAR(255)")
-    private String statusSuggestion;
-
-    @Column(name = "date_creation_suggestion")
-    private String dateCreationSuggestion;
-
-    @Column(name = "active", columnDefinition = "Boolean")
+    private String title;
+    private String content;
+    private String status;
+    private Date dateCreation;
     private boolean active;
 }

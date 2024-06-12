@@ -12,10 +12,6 @@ public class Arborescence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
-
-    @Column(name = "name_file", columnDefinition = "VARCHAR(255)")
     private String nameFile;
-
-    @Column(name = "road_arborescence_file", columnDefinition = "VARCHAR(255)")
-    private String roadArborescenceFile;
+    private String roadFile;
 }

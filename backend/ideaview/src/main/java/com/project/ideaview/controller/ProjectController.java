@@ -1,5 +1,6 @@
 package com.project.ideaview.controller;
 
+import com.project.ideaview.dto.ProjectDto;
 import com.project.ideaview.model.Project;
 import com.project.ideaview.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/project")
+@RequestMapping("/api")
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
@@ -19,20 +20,19 @@ public class ProjectController {
      * @param id
      * @return
      */
-    @DeleteMapping("/project/{id}")
+    @DeleteMapping("/dashboard/project/{id}")
     public Project deleteProject(@PathVariable Integer id){
         return this.projectService.deleteProject(id);
     }
 
     /**
      * Page qui permet de faire l'ajout et la modification<br>
-     * @param project
+     * @param projectDto
      * @return
      */
-    @PostMapping("/dashboard/project")
-    public Project recupFormProject(@ModelAttribute Project project){
-        this.projectService.saveProject(project);
-        return project;
+    @PostMapping("/project")
+    public Project createProject(@RequestBody ProjectDto projectDto){
+        return this.projectService.createProject(projectDto.getProject());
     }
 
     /**

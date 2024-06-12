@@ -10,13 +10,11 @@ import lombok.Setter;
 @Table(name = "administrator")
 public class Administrator {
     public Administrator() {
-        this.isAdmin = true;
+        this.isAdmin = false;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
     private Integer id;
-
-    @Column(name = "is_admin", columnDefinition = "Boolean")
     private boolean isAdmin;
 }

@@ -13,10 +13,6 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-    public List<Project> getAllProject(){
-        return this.projectRepository.findAll();
-    }
-
     /**
      * Méthode qui permet de faire l'ajout et la modification<br>
      * - l'ajout : id = null <br>
@@ -24,7 +20,7 @@ public class ProjectService {
      * @param project
      * @return
      */
-    public Project saveProject(Project project){
+    public Project createProject(Project project){
         return this.projectRepository.save(project);
     }
 
