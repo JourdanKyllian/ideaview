@@ -11,7 +11,7 @@ describe('NewprojectPageComponent', () => {
       imports: [NewprojectPageComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(NewprojectPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

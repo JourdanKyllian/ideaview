@@ -1,5 +1,6 @@
 package com.project.ideaview.controller;
 
+import com.project.ideaview.dto.NewsDto;
 import com.project.ideaview.model.News;
 import com.project.ideaview.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,21 @@ public class NewsController {
 
     /**
      * Méthode qui permet de faire l'ajout et la modification<br>
-     * @param news
+     * @param
      * @return
      */
     @PostMapping("/news")
-    public News newProjectNews(@RequestBody News news){
-        this.newsService.saveNews(news);
-        return news;
+    public News createNews(@RequestBody NewsDto newsDto){
+        return this.newsService.saveNews(newsDto.getNews());
+    }
+
+    /**
+     * recupere toutes les news<br>
+     * @return
+     */
+    @GetMapping("/newslist")
+    public List<News> getAllNews(){
+        return this.newsService.getAllNews();
     }
 
 //    /**

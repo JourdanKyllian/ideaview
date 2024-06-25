@@ -5,10 +5,10 @@ import {ProjectPageComponent} from "./pages/general/project-page/project-page.co
 import {SuggestionPageComponent} from "./pages/general/suggestion-page/suggestion-page.component";
 import {HomePageComponent} from "./pages/general/home-page/home-page.component";
 import {SignupPageComponent} from "./pages/general/signup-page/signup-page.component";
-import {NewprojectPageComponent} from "./pages/general/newproject-page/newproject-page.component";
 import {AddpersonPageComponent} from "./pages/general/addperson-page/addperson-page.component";
 import {ProfilesecuritePageComponent} from "./pages/general/profilesecurite-page/profilesecurite-page.component";
 import {LoginPageComponent} from "./pages/general/login-page/login-page.component";
+import {NewprojectPageComponent} from "./pages/general/newproject-page/newproject-page.component";
 
 export const routes: Routes = [
   {

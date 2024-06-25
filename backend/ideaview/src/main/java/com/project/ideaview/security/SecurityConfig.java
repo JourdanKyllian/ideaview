@@ -50,7 +50,6 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/api/**").permitAll() //authenticated pour user authentifier
-//                        .requestMatchers("/api/suggestion/**").permitAll()
 //                        .requestMatchers("/api/client/**").hasAnyAuthority("CLIENT")
 //                        .requestMatchers("/api/dashboard/**").hasAnyAuthority("ADMIN")
                 )
@@ -58,7 +57,6 @@ public class SecurityConfig {
                 .addFilterBefore(securityFilter(), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

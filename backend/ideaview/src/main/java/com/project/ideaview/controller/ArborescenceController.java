@@ -19,7 +19,7 @@ public class ArborescenceController {
      * methode qui permet d'afficher un fichier de l'arborescence
      * @return
      */
-    @GetMapping("/arborescence")
+    @GetMapping("/arborescencelist")
     public List<Arborescence> arborescence(){
         return this.arborescenceService.getAllArborescence();
     }

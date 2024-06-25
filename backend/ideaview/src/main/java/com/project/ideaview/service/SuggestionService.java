@@ -13,8 +13,24 @@ public class SuggestionService {
     @Autowired
     private SuggestionRepository suggestionRepository;
 
+    /**
+     * Méthode qui permet de faire l'affichage d'une suggestion<br>
+     * @return
+     */
     public List<Suggestion> getAllSuggestion(){
-        return this.suggestionRepository.findAll();
+        List<Suggestion> suggestions = new ArrayList<>();
+        suggestions = this.suggestionRepository.findAll();
+        return suggestions;
+    }
+
+    /**
+     * Méthode qui permet de faire l'affichage d'une suggestion si active = 0<br>
+     * @return
+     */
+    public List<Suggestion> getAllSuggestionArchived(){
+        List<Suggestion> suggestions = new ArrayList<>();
+        suggestions = this.suggestionRepository.findByActiveIsFalse();
+        return suggestions;
     }
 
     /**
@@ -22,17 +38,29 @@ public class SuggestionService {
      * @param suggestion
      * @return
      */
-    public Suggestion saveSuggestion(Suggestion suggestion){
+    public Suggestion createSuggestion(Suggestion suggestion){
         return this.suggestionRepository.save(suggestion);
     }
 
     /**
-     * Méthode qui permet de supprimer une suggestion
+     * Méthode qui archive une suggestion en passant active à false
+     * @param id
+     * @return
+     */
+    public Suggestion archiveSuggestion(Integer id){
+        Suggestion suggestion = this.suggestionRepository.findById(id).orElse(new Suggestion());
+        suggestion.setActive(false);
+        return this.suggestionRepository.save(suggestion);
+    }
+
+    /**
+     * Méthode qui delete une suggestion
      * @param suggestion
      */
     public void deleteSuggestion(Suggestion suggestion){
         this.suggestionRepository.delete(suggestion);
     }
+
     /**
      * recupere toute les user d'un projet
      * @param id

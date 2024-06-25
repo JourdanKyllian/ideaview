@@ -15,8 +15,16 @@ public class NewsService {
     /**
      * Méthode qui permet de faire l'ajout<br>
      */
-    public void saveNews(News news){
-        this.newsRepository.save(news);
+    public News saveNews(News news){
+        return this.newsRepository.save(news);
+    }
+
+    /**
+     * recupere toute les news
+     * @return
+     */
+    public List<News> getAllNews(){
+        return this.newsRepository.findAll();
     }
 
 //    /**

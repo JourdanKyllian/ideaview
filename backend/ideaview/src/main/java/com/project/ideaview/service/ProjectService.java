@@ -25,7 +25,7 @@ public class ProjectService {
     }
 
     /**
-     * recupere toute les tache d'un projet
+     * recupere tout les projets d'un utilisateur
      * @param id
      * @return
      */
@@ -34,14 +34,13 @@ public class ProjectService {
     }
 
     /**
-     * methode qui delete un projet
+     * Méthode qui delete un projet en passant active à false
      * @param id
      * @return
      */
     public Project deleteProject(Integer id){
         Project project = this.projectRepository.findById(id).orElse(new Project());
-        project.setActive(!project.isActive());
-        this.projectRepository.save(project);
-        return project;
+        project.setActive(false);
+        return this.projectRepository.save(project);
     }
 }

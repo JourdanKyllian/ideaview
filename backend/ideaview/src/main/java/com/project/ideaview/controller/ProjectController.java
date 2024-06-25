@@ -6,8 +6,6 @@ import com.project.ideaview.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
@@ -16,27 +14,17 @@ public class ProjectController {
     private ProjectService projectService;
 
     /**
-     * methode qui supprime un projet
-     * @param id
-     * @return
-     */
-    @DeleteMapping("/dashboard/project/{id}")
-    public Project deleteProject(@PathVariable Integer id){
-        return this.projectService.deleteProject(id);
-    }
-
-    /**
-     * Page qui permet de faire l'ajout et la modification<br>
+     * Route qui permet de faire l'ajout et la modification d'yn projet<br>
      * @param projectDto
      * @return
      */
-    @PostMapping("/project")
+    @PostMapping("/projectsave")
     public Project createProject(@RequestBody ProjectDto projectDto){
         return this.projectService.createProject(projectDto.getProject());
     }
 
     /**
-     * recupere tout les projets d'un utilisateur
+     * Route qui recupère tout les projets d'un utilisateur
      * @param id
      * @return
      */
@@ -45,4 +33,13 @@ public class ProjectController {
         return this.projectService.byUserIdProject(id);
     }
 
+    /**
+     * Route qui supprime un projet
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/dashboard/projectdel/{id}")
+    public Project deleteProject(@PathVariable Integer id){
+        return this.projectService.deleteProject(id);
+    }
 }
