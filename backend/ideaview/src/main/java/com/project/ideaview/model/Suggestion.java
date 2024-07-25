@@ -23,4 +23,12 @@ public class Suggestion {
     private String status;
     private Date dateCreation;
     private boolean active;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

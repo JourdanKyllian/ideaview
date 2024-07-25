@@ -17,7 +17,7 @@ public class SuggestionDto {
         suggestion.setContent(this.content);
         suggestion.setDateCreation(new Date());
         suggestion.setActive(true);
-        suggestion.setStatus("En cours de truc");
+        suggestion.setStatus("En cours de traitement");
         return suggestion;
     }
 }

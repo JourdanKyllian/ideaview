@@ -49,9 +49,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/api/**").permitAll() //authenticated pour user authentifier
-//                        .requestMatchers("/api/client/**").hasAnyAuthority("CLIENT")
-//                        .requestMatchers("/api/dashboard/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers("/api/**").permitAll()  //authenticated()
                 )
                 .cors(Customizer.withDefaults())
                 .addFilterBefore(securityFilter(), UsernamePasswordAuthenticationFilter.class)

@@ -20,11 +20,11 @@ public class News {
     private String content;
     private Date dateCreation;
 
-//    @ManyToOne
-//    @JoinColumn(name = "project_id", nullable = false)
-//    private Project project;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "users_id", nullable = false)
-//    private Users users;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private Users users;
 }

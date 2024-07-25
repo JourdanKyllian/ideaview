@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/api/news")
 public class NewsController {
     @Autowired
     private NewsService newsService;
@@ -20,7 +20,7 @@ public class NewsController {
      * @param
      * @return
      */
-    @PostMapping("/news")
+    @PostMapping("/save")
     public News createNews(@RequestBody NewsDto newsDto){
         return this.newsService.saveNews(newsDto.getNews());
     }
@@ -29,7 +29,7 @@ public class NewsController {
      * recupere toutes les news<br>
      * @return
      */
-    @GetMapping("/newslist")
+    @GetMapping("/list")
     public List<News> getAllNews(){
         return this.newsService.getAllNews();
     }

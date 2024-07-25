@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,4 +23,12 @@ public class Project {
     private String description;
     private Date dateCreation;
     private boolean active;
+
+    // Many-to-Many to User for contributors
+    @ManyToMany(mappedBy = "contributedProjects")
+    private Set<Users> contributors;
+
+    // Many-to-Many to User for admins
+    @ManyToMany(mappedBy = "adminProjects")
+    private Set<Users> admins;
 }

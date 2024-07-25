@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/api/project")
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
     /**
-     * Route qui permet de faire l'ajout et la modification d'yn projet<br>
+     * Route qui permet de faire l'ajout d'un projet<br>
      * @param projectDto
      * @return
      */
-    @PostMapping("/projectsave")
+    @PostMapping("/save")
     public Project createProject(@RequestBody ProjectDto projectDto){
         return this.projectService.createProject(projectDto.getProject());
     }
@@ -28,9 +28,19 @@ public class ProjectController {
      * @param id
      * @return
      */
-    @GetMapping("/project/{id}")
+    @GetMapping("/{id}")
     public Project getProject(@PathVariable Integer id){
         return this.projectService.byUserIdProject(id);
+    }
+
+    /**
+     * Route qui permet de faire la mise a jour d'un projet<br>
+     * @param projectDto
+     * @return
+     */
+    @PostMapping("/dashboard/update/{id}")
+    public Project updateProject(@RequestBody ProjectDto projectDto, @PathVariable Integer id){
+        return this.projectService.updateProject(projectDto.getProject(), id);
     }
 
     /**
@@ -38,7 +48,7 @@ public class ProjectController {
      * @param id
      * @return
      */
-    @DeleteMapping("/dashboard/projectdel/{id}")
+    @DeleteMapping("/dashboard/delete/{id}")
     public Project deleteProject(@PathVariable Integer id){
         return this.projectService.deleteProject(id);
     }

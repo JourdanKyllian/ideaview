@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/api/suggestion")
 public class SuggestionController {
     @Autowired
     private SuggestionService suggestionService;
@@ -19,7 +19,7 @@ public class SuggestionController {
      * Route qui retourne toutes les suggestions d'un projet
      * @return
      */
-    @GetMapping("/suggestionlist")
+    @GetMapping("/list")
     public List<Suggestion> getAllSuggestion(){
         return this.suggestionService.getAllSuggestion();
     }
@@ -28,7 +28,7 @@ public class SuggestionController {
      * Route qui retourne toutes les suggestions archivés d'un projet
      * @return
      */
-    @GetMapping("/suggestionlistarchived")
+    @GetMapping("/archived/list")
     public List<Suggestion> getAllSuggestionArchived(){
         return this.suggestionService.getAllSuggestionArchived();
     }
@@ -38,7 +38,7 @@ public class SuggestionController {
      * @param suggestionDto
      * @return
      */
-    @PostMapping("/suggestionsave")
+    @PostMapping("/save")
     public Suggestion createSuggestion(@RequestBody SuggestionDto suggestionDto){
         return this.suggestionService.createSuggestion(suggestionDto.getSuggestion());
     }
@@ -48,7 +48,7 @@ public class SuggestionController {
      * @param id
      * @return
      */
-    @PostMapping("/suggestionarchive/{id}")
+    @PostMapping("/dashboard/archive/{id}")
     public Suggestion archiveSuggestion(@PathVariable Integer id){
         return this.suggestionService.archiveSuggestion(id);
     }
@@ -57,7 +57,7 @@ public class SuggestionController {
      * Route qui permet de faire la suppression d'une suggestion<br>
      * @param id
      */
-    @DeleteMapping("/dashboard/suggestiondell/{id}")
+    @DeleteMapping("/dashboard/delete/{id}")
     public void deleteSuggestion(@PathVariable Integer id){
         this.suggestionService.deleteSuggestion(this.suggestionService.bySuggestionId(id));
     }

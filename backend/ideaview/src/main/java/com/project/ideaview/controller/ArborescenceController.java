@@ -19,7 +19,7 @@ public class ArborescenceController {
      * methode qui permet d'afficher un fichier de l'arborescence
      * @return
      */
-    @GetMapping("/arborescencelist")
+    @GetMapping("/arborescence/list")
     public List<Arborescence> arborescence(){
         return this.arborescenceService.getAllArborescence();
     }
@@ -29,7 +29,7 @@ public class ArborescenceController {
      * @param arborescence
      * @return
      */
-    @PostMapping("/arborescence")
+    @PostMapping("/arborescence/save")
     public Arborescence saveArborescence(@RequestBody Arborescence arborescence){
         return this.arborescenceService.saveArborescence(arborescence);
     }
@@ -40,7 +40,7 @@ public class ArborescenceController {
      * methode qui permet de supprimer un fichier de l'arborescence
      * @param id
      */
-    @DeleteMapping("/dashboard/arborescence/{id}")
+    @DeleteMapping("/dashboard/arborescence/delete/{id}")
     public void deleteArborescence(@PathVariable Integer id){
         this.arborescenceService.deleteArborescence(id);
     }

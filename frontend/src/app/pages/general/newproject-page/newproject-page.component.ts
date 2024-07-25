@@ -3,11 +3,13 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ProjectModel} from "../../../models/project.model";
 import {ProjectService} from "../../../services/ProjectService.service";
 import {CommonModule, NgClass} from "@angular/common";
+import {ProjectSidebarComponent} from "../../../components/project-sidebar/project-sidebar.component";
 
 @Component({
   selector: 'app-newproject-page',
   standalone: true,
   imports: [
+    ProjectSidebarComponent,
     ReactiveFormsModule,
     NgClass,
     CommonModule

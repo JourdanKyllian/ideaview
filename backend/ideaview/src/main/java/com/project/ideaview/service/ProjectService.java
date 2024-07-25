@@ -14,7 +14,7 @@ public class ProjectService {
     private ProjectRepository projectRepository;
 
     /**
-     * Méthode qui permet de faire l'ajout et la modification<br>
+     * Méthode qui permet de faire l'ajout d'un projet<br>
      * - l'ajout : id = null <br>
      * - modification : id != null
      * @param project
@@ -31,6 +31,20 @@ public class ProjectService {
      */
     public Project byUserIdProject(Integer id){
         return this.projectRepository.findById(id).orElse(new Project());
+    }
+
+
+    /**
+     * Methode qui permet de faire la mise a jour d'un projet<br>
+     * @param project
+     * @param id
+     * @return
+     */
+    public Project updateProject(Project project, Integer id){
+        Project projectUpdate = this.projectRepository.findById(id).orElse(new Project());
+        //projectUpdate.setName(project.getName()); pas de mise a jour du nom
+        projectUpdate.setDescription(project.getDescription());
+        return this.projectRepository.save(projectUpdate);
     }
 
     /**
