@@ -17,18 +17,16 @@ public class Project {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_insc
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
     private Date dateCreation;
     private boolean active;
 
-    // Many-to-Many to User for contributors
     @ManyToMany(mappedBy = "contributedProjects")
     private Set<Users> contributors;
 
-    // Many-to-Many to User for admins
     @ManyToMany(mappedBy = "adminProjects")
     private Set<Users> admins;
 }

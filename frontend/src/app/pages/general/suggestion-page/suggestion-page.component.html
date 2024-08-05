@@ -3,9 +3,9 @@
   <app-project-sidebar></app-project-sidebar>
 </div>
 
-<div class="col-10">
+<div class="col-md-10">
   <div class="row">
-    <div class="container mt-3">
+    <div class="container mt-3" style="margin-left:-9%;position:fixed">
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
         Ajouter
       </button>
@@ -66,25 +66,26 @@
     <div *ngFor="let suggestion of suggestions; let i = index" class="comment">
       <div class="comment-author-ava"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar"></div>
       <div class="comment-body">
-        <h5>{{suggestion.title}}</h5>
+        <div style="display:flex;justify-content: space-between">
+          <h5>{{suggestion.title}}</h5>
+          <i class="bi bi-trash"></i>
+        </div>
         <p class="comment-text">{{suggestion.content}}</p>
-        <div class="comment-footer"><span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span></div>
+<!--        <div class="comment-footer"><span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span></div>-->
       </div>
     </div>
 
-
-
-    <!-- Messages-->
-    <div class="comment">
-      <div class="comment-author-ava"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar"></div>
-      <div class="comment-body">
-        <h5>Test de mecanique dans le domaine du chouchou</h5>
-        <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-          provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-        <div class="comment-footer"><span class="comment-meta">Daniel Adams</span></div>
-      </div>
-    </div>
+    <!-- Template messages-->
+<!--    <div class="comment">-->
+<!--      <div class="comment-author-ava"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar"></div>-->
+<!--      <div class="comment-body">-->
+<!--        <h5>Test de mecanique dans le domaine du chouchou</h5>-->
+<!--        <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium-->
+<!--          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non-->
+<!--          provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>-->
+<!--        <div class="comment-footer"><span class="comment-meta">Daniel Adams</span></div>-->
+<!--      </div>-->
+<!--    </div>-->
 
   </div>
 </div>
