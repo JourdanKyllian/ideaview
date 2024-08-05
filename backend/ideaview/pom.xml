@@ -37,7 +37,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!--	Postgres	-->
-				<dependency>
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
