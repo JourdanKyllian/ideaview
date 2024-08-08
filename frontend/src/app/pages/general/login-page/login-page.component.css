@@ -1,13 +1,3 @@
-/* Importing fonts from Google */
-
-/* Reseting */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 body {
   background: #ecf0f3;
 }
@@ -54,13 +44,10 @@ body {
   background: none;
   font-size: 1.2rem;
   color: #666;
-  padding: 10px 15px 10px 10px;
-  /* border: 1px solid red; */
 }
 
 .wrapper .form-field {
   padding-left: 10px;
-  margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }

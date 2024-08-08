@@ -1,7 +1,7 @@
 package com.project.ideaview.controller;
 
 import com.project.ideaview.dto.IdentificationDto;
-import com.project.ideaview.dto.UserDto;
+import com.project.ideaview.dto.RegisterDto;
 import com.project.ideaview.manager.JwtTokenManager;
 import com.project.ideaview.manager.Random;
 import com.project.ideaview.manager.WsException;
@@ -31,7 +31,7 @@ public class IdentificationController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /**
-     * La méthode elle permet de récupérer l'email et le mdp de l'utilisateur
+     * La méthode elle permet de connecter un utilisateur
      * @return
      * <ul>
      *     <li><b>Exception</b> si l'email ou mdp n'existe pas</li>
@@ -60,7 +60,7 @@ public class IdentificationController {
 
     /**
      * La méthode qui permet d'enregister un nouvel utilisateur
-     * @param userDto
+     * @param registerDto
      * @return
      * <ul>
      *     <li><b>Exception</b> si l'email existe ....</li>
@@ -68,18 +68,20 @@ public class IdentificationController {
      * </ul>
      */
     @PostMapping("/register")
-    public Map<String, String> register(@RequestBody UserDto userDto) {
-        if (userDto.getPassword().length() <= 8){
+    public Map<String, String> register(@RequestBody RegisterDto registerDto) {
+        if (registerDto.getPassword().length() <= 8){
             throw new WsException(HttpStatus.BAD_REQUEST, "Le mot de passe doit contenir au moins 8 caractères");
         }
 
-        Users users = usersService.findByEmail(userDto.getEmail());
+        // vérifier si l'email existe
+        Users users = usersService.findByEmail(registerDto.getEmail());
         if (users != null) {
             throw new WsException(HttpStatus.BAD_REQUEST, "Cet email existe déja");
         }
 
-        users = userDto.getUser();
-        users.setPassword(this.bCryptPasswordEncoder.encode(userDto.getPassword()));
+        // Crypter le mot de passe
+        users = registerDto.getUser();
+        users.setPassword(this.bCryptPasswordEncoder.encode(registerDto.getPassword()));
         users.setRoles(List.of(roleService.save("USER")));
 
         // générer un token user

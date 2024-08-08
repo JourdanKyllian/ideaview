@@ -9,6 +9,8 @@ import {AddpersonPageComponent} from "./pages/general/addperson-page/addperson-p
 import {ProfilesecuritePageComponent} from "./pages/general/profilesecurite-page/profilesecurite-page.component";
 import {LoginPageComponent} from "./pages/general/login-page/login-page.component";
 import {NewprojectPageComponent} from "./pages/general/newproject-page/newproject-page.component";
+import {JoinProjectComponent} from "./pages/general/join-project/join-project.component";
+import {CreateProjectComponent} from "./pages/general/create-project/create-project.component";
 
 export const routes: Routes = [
   {
@@ -44,7 +46,15 @@ export const routes: Routes = [
     component: NewprojectPageComponent
   },
   {
-    path: "dashboard",
+    path: "join-project",
+    component: JoinProjectComponent
+  },
+  {
+    path: "create-project",
+    component: CreateProjectComponent
+  },
+  {
+    path: "dashboard/add-person",
     component: AddpersonPageComponent
   },
   {

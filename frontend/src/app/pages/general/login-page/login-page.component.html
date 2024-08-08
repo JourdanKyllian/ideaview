@@ -5,18 +5,26 @@
   <div class="text-center mt-4 name">
     Connexion
   </div>
-  <form class="p-3 mt-3">
+  <form [formGroup]="formIdentification" (ngSubmit)="submitForm()" class="p-3 mt-3">
     <div class="form-field d-flex align-items-center">
       <span class="far fa-user"></span>
-      <input type="email" name="email" id="mail" placeholder="E-mail">
+      <input required=""
+             [ngClass]="{
+                  'has-danger': email.invalid && (email.dirty || email.touched),
+                  'has-success': email.invalid && (email.dirty || email.touched),
+              }" type="email" name="email" id="mail" placeholder="E-mail" formControlName="email">
     </div>
     <div class="form-field d-flex align-items-center">
       <span class="fas fa-key"></span>
-      <input type="password" name="password" id="pwd" placeholder="Password">
+      <input required=""
+             [ngClass]="{
+                  'has-danger': password.invalid && (password.dirty || password.touched),
+                  'has-success': password.invalid && (password.dirty || password.touched),
+              }" type="password" name="password" id="password" placeholder="Mot de passe" formControlName="content">
     </div>
-    <button class="btn mt-3">Login</button>
+    <button class="btn mt-3">Se connecter</button>
   </form>
   <div class="text-center fs-6">
-    <a href="#">Forget password?</a> or <a href="#">Sign up</a>
+    <a href="#">Mot de passe oublié?</a> ou <a routerLink="/sign-up">S'inscrire</a>
   </div>
 </div>

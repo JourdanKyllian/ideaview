@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {SuggestionModel} from "../models/suggestion.model";
 import {catchError, Observable} from "rxjs";
+import {SuggestionModel} from "../models/suggestion.model";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class SuggestionService {
   private suggestionUrl = 'http://localhost:8080/api/suggestion';
   constructor(private http: HttpClient) {}

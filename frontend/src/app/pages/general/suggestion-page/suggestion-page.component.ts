@@ -27,7 +27,6 @@ export class SuggestionPageComponent implements OnInit {
 
   constructor(private suggestionService: SuggestionService) { }
 
-
   ngOnInit(): void {
     this.createFormControls();
     this.createFormModel();
