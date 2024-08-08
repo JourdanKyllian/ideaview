@@ -1,0 +1,19 @@
+<form [formGroup]="formProject" (ngSubmit)="submitForm()" novalidate>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nom du projet</label>
+    <input type="text" class="form-control" [ngClass]="{
+                  'has-danger': name.invalid && (name.dirty || name.touched),
+                  'has-success': name.invalid && (name.dirty || name.touched),
+              }" id="name" placeholder="Nom du projet" formControlName="name">
+    <p *ngIf="name.errors?.['required']">Champ obligatoire !</p>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" [ngClass]="{
+                  'has-danger': description.invalid && (description.dirty || description.touched),
+                  'has-success': description.invalid && (description.dirty || description.touched),
+              }" id="description" placeholder="description" formControlName="description">
+    <p *ngIf="description.errors?.['required']">Champ obligatoire !</p>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

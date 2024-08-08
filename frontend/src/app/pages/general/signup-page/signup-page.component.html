@@ -1,1 +1,50 @@
-<p>signup-page works!</p>
+<div class="wrapper">
+  <div class="logo">
+    <img src="./assets/media/img/IDEAVIEW-LOGO-TRANSPARENT.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+    Inscription
+  </div>
+  <form [formGroup]="formRegister" (ngSubmit)="submitForm()" class="p-3 mt-3">
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input required=""
+             [ngClass]="{
+                  'has-danger': firstname.invalid && (firstname.dirty || firstname.touched),
+                  'has-success': firstname.invalid && (firstname.dirty || firstname.touched),
+              }" type="text" name="firstname" id="firstname" placeholder="Prenom" formControlName="firstname">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input required=""
+             [ngClass]="{
+                  'has-danger': lastname.invalid && (lastname.dirty || lastname.touched),
+                  'has-success': lastname.invalid && (lastname.dirty || lastname.touched),
+              }" type="text" name="lastname" id="lastname" placeholder="Nom" formControlName="lastname">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input required=""
+             [ngClass]="{
+                  'has-danger': email.invalid && (email.dirty || email.touched),
+                  'has-success': email.invalid && (email.dirty || email.touched),
+              }" type="email" name="email" id="mail" placeholder="E-mail" formControlName="email">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input required=""
+             [ngClass]="{
+                  'has-danger': password.invalid && (password.dirty || password.touched),
+                  'has-success': password.invalid && (password.dirty || password.touched),
+              }" type="password" name="password" id="pwd" placeholder="Mot de passe" formControlName="password">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input required="" type="password" name="confpassword" id="confpwd" placeholder="Confirmer mot de passe">
+    </div>
+    <button class="btn mt-3">S'inscrire</button>
+  </form>
+  <div class="text-center fs-6">
+    <a href="#">Mot de passe oublié?</a> ou <a routerLink="/login">Se connecter</a>
+  </div>
+</div>

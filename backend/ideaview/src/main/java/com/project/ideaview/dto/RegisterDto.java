@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class UserDto {
+public class RegisterDto {
 
     // contenu du formulaire
 
