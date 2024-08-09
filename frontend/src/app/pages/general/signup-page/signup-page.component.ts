@@ -1,10 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgClass} from "@angular/common";
+import {CommonModule, NgClass} from "@angular/common";
 import {RegisterModel} from "../../../models/register.model";
 import {IdentificationService} from "../../../services/IdentificationService.service";
-import {last} from "rxjs";
 
 @Component({
   selector: 'app-signup-page',
@@ -12,7 +11,8 @@ import {last} from "rxjs";
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    NgClass
+    NgClass,
+    CommonModule
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.css'
@@ -33,15 +33,14 @@ export class SignupPageComponent implements OnInit {
     this.createFormModel();
   }
 
-  private createFormControls() {
+  private createFormControls():void {
     this.firstname = new FormControl('', Validators.required);
     this.lastname = new FormControl('', Validators.required);
     this.email = new FormControl('', Validators.required);
     this.password = new FormControl('', Validators.required);
-    this.loadRegistration();
   }
 
-  private createFormModel() {
+  private createFormModel():void {
     this.formRegister = new FormGroup({
       firstname: this.firstname,
       lastname: this.lastname,
@@ -50,9 +49,10 @@ export class SignupPageComponent implements OnInit {
     });
   }
 
-  submitForm() {
+  submitForm():void {
     if (this.formRegister.valid) {
       const registerData: RegisterModel = this.formRegister.value;
+      console.log(registerData)
       this.identificationService.createUser(registerData).subscribe({
         next: (register) => {
           this.createdUser.emit(register);
@@ -67,7 +67,7 @@ export class SignupPageComponent implements OnInit {
     }
   }
 
-  private loadRegistration() {
+  private loadRegistration():void {
     this.identificationService.createUser(this.formRegister.value).subscribe({
       next: (register) => {
         this.createdUser.emit(register);

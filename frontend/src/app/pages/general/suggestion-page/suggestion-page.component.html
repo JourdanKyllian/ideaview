@@ -71,7 +71,10 @@
           <i class="bi bi-trash"></i>
         </div>
         <p class="comment-text">{{suggestion.content}}</p>
-<!--        <div class="comment-footer"><span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span></div>-->
+        <div class="comment-footer">
+<!--          <span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span>-->
+          <span class="comment-meta">{{suggestion.date_creation}}</span>
+        </div>
       </div>
     </div>
 

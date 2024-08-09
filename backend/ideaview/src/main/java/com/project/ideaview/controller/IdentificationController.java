@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import java.util.logging.Logger;
 
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,8 @@ public class IdentificationController {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    private static final Logger logger = Logger.getLogger(IdentificationController.class.getName());
 
     /**
      * La méthode elle permet de connecter un utilisateur
@@ -53,6 +56,9 @@ public class IdentificationController {
         if (!this.bCryptPasswordEncoder.matches(identificationDto.getPassword(), users.getPassword())) {
             throw new WsException(HttpStatus.NOT_FOUND,msgError);
         }
+
+        // Crypter le token
+        logger.info("L'utilisateur "+users.getEmail()+" s'est connecté");
 
         // Crypter le token
         return Map.of("token", JwtTokenManager.generateToken(users.getToken()));

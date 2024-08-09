@@ -55,8 +55,20 @@ export class SuggestionPageComponent implements OnInit {
   }
 
   private loadSuggestion() {
-    this.suggestionService.readSuggestions().subscribe(suggestions => {
-      this.suggestions = suggestions;
+    this.suggestionService.readSuggestions().subscribe(
+      (data: SuggestionModel[]) => { // Typage explicite pour data
+        this.suggestions = this.sortByIdDesc(data);
+      },
+      error => {
+        console.error('Erreur lors du chargement des suggestions', error);
+      }
+    );
+  }
+
+  sortByIdDesc(arr: SuggestionModel[]): SuggestionModel[] {
+    return arr.sort((a, b) => {
+      // trier par id
+      return b.id - a.id;
     });
   }
 }
