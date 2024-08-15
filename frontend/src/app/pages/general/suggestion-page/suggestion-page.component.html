@@ -71,9 +71,11 @@
           <i class="bi bi-trash"></i>
         </div>
         <p class="comment-text">{{suggestion.content}}</p>
-        <div class="comment-footer">
+        <div class="comment-footer" style="display:flex;justify-content: space-between">
 <!--          <span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span>-->
-          <span class="comment-meta">{{suggestion.date_creation}}</span>
+          <span class="comment-meta">{{suggestion.dateCreation | date:'HH:mm dd/MM/yyyy'}}</span>
+<!--          <span class="comment-meta">{{formatCreationDate(suggestion.dateCreation)}}</span>-->
+
         </div>
       </div>
     </div>

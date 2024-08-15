@@ -15,8 +15,7 @@ import {ProjectDescriptionComponent} from "../../../components/project-descripti
     PersonNameComponent,
     SideBarComponent,
     ProjectNameComponent,
-    ProjectDescriptionComponent,
-
+    ProjectDescriptionComponent
   ],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.css'

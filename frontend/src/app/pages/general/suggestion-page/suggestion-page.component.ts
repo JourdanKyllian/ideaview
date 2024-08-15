@@ -1,9 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProjectSidebarComponent} from "../../../components/project-sidebar/project-sidebar.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {CommonModule, NgClass} from "@angular/common";
+import {CommonModule, DatePipe, NgClass} from "@angular/common";
 import {SuggestionService} from "../../../services/SuggestionService.service";
 import {SuggestionModel} from "../../../models/suggestion.model";
+import {UsersModel} from "../../../models/users.model";
 
 @Component({
   selector: 'app-suggestion-page',
@@ -12,7 +13,8 @@ import {SuggestionModel} from "../../../models/suggestion.model";
     ProjectSidebarComponent,
     ReactiveFormsModule,
     NgClass,
-    CommonModule
+    CommonModule,
+    // DatePipe
   ],
   templateUrl: './suggestion-page.component.html',
   styleUrl: './suggestion-page.component.css'
@@ -25,7 +27,7 @@ export class SuggestionPageComponent implements OnInit {
 
   @Output() suggestionCreated: EventEmitter<SuggestionModel> = new EventEmitter<SuggestionModel>();
 
-  constructor(private suggestionService: SuggestionService) { }
+  constructor(private suggestionService: SuggestionService/*, private datePipe: DatePipe*/) { }
 
   ngOnInit(): void {
     this.createFormControls();
@@ -48,6 +50,7 @@ export class SuggestionPageComponent implements OnInit {
   submitForm() {
     if (this.formSuggestion.valid) {
       this.suggestionService.createSuggestion(this.formSuggestion.value).subscribe(suggestion => {
+        this.loadSuggestion();
         this.suggestionCreated.emit(suggestion);
         this.suggestions.push(suggestion);
       });
@@ -58,6 +61,7 @@ export class SuggestionPageComponent implements OnInit {
     this.suggestionService.readSuggestions().subscribe(
       (data: SuggestionModel[]) => { // Typage explicite pour data
         this.suggestions = this.sortByIdDesc(data);
+        console.log(data);
       },
       error => {
         console.error('Erreur lors du chargement des suggestions', error);
@@ -71,4 +75,21 @@ export class SuggestionPageComponent implements OnInit {
       return b.id - a.id;
     });
   }
+
+  // formatCreationDate(date: string | Date): string | null {
+  //   const today = new Date();
+  //   const dateToFormat = new Date(date);
+  //
+  //   if (this.isSameDay(today, dateToFormat)) {
+  //     return this.datePipe.transform(dateToFormat, 'HH:mm');
+  //   } else {
+  //     return this.datePipe.transform(dateToFormat, 'dd/MM/yyyy');
+  //   }
+  // }
+
+  // private isSameDay(date1: Date, date2: Date): boolean {
+  //   return date1.getFullYear() === date2.getFullYear() &&
+  //     date1.getMonth() === date2.getMonth() &&
+  //     date1.getDate() === date2.getDate();
+  // }
 }

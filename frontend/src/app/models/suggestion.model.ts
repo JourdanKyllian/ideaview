@@ -5,6 +5,6 @@ export class SuggestionModel {
     public id: number,
     public title: string,
     public content: string,
-    public users: UsersModel
+    public dateCreation: Date
   ) {}
 }
