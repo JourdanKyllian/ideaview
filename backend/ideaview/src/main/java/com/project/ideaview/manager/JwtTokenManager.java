@@ -30,6 +30,12 @@ public class JwtTokenManager {
                 .compact();
     }
 
+    /**
+     * Méthode qui permet de vérifier le token
+     * @param token
+     * @return
+     * @throws Exception
+     */
     public static String getUser(String token) throws Exception {
         Claims claims = Jwts.parser().verifyWith(secretKey()).build().parseSignedClaims(token).getPayload();
 

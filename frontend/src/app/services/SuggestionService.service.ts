@@ -27,4 +27,12 @@ export class SuggestionService {
         throw error;
       }));
   }
+
+  deleteSuggestion(id: number): Observable<SuggestionModel> {
+    return this.http.post<SuggestionModel>(this.suggestionUrl+'/delete/'+id, null)
+      .pipe(catchError((error: any) => {
+        console.error('Une erreur s\'est produite lors de la suppression de la suggestion :', error);
+        throw error;
+      }));
+  }
 }

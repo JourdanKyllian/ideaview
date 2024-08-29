@@ -1,10 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ProjectSidebarComponent} from "../../../components/project-sidebar/project-sidebar.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommonModule, DatePipe, NgClass} from "@angular/common";
 import {SuggestionService} from "../../../services/SuggestionService.service";
 import {SuggestionModel} from "../../../models/suggestion.model";
-import {UsersModel} from "../../../models/users.model";
 
 @Component({
   selector: 'app-suggestion-page',
@@ -26,6 +25,8 @@ export class SuggestionPageComponent implements OnInit {
   public suggestions: SuggestionModel[] = [];
 
   @Output() suggestionCreated: EventEmitter<SuggestionModel> = new EventEmitter<SuggestionModel>();
+
+  @ViewChild('myModal') myModal!: ElementRef;
 
   constructor(private suggestionService: SuggestionService/*, private datePipe: DatePipe*/) { }
 
@@ -50,9 +51,22 @@ export class SuggestionPageComponent implements OnInit {
   submitForm() {
     if (this.formSuggestion.valid) {
       this.suggestionService.createSuggestion(this.formSuggestion.value).subscribe(suggestion => {
+        // Ajouter la suggestion
         this.loadSuggestion();
         this.suggestionCreated.emit(suggestion);
         this.suggestions.push(suggestion);
+
+        // Fermer le modal après la soumission
+        const modalElement = this.myModal.nativeElement;
+        modalElement.classList.remove('show'); // Retirer la classe 'show'
+        modalElement.style.display = 'none'; // S'assurer que le style est mis à jour
+        document.body.classList.remove('modal-open'); // Retirer la classe 'modal-open' du body
+
+        // Retirer le backdrop si présent
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.remove();
+        }
       });
     }
   }
@@ -73,6 +87,12 @@ export class SuggestionPageComponent implements OnInit {
     return arr.sort((a, b) => {
       // trier par id
       return b.id - a.id;
+    });
+  }
+
+  suppression(suggestion: SuggestionModel) {
+    this.suggestionService.deleteSuggestion(suggestion.id).subscribe(() => {
+      this.loadSuggestion();
     });
   }
 

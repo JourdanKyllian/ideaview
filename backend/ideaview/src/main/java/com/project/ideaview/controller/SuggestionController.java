@@ -21,16 +21,7 @@ public class SuggestionController {
      */
     @GetMapping("/list")
     public List<Suggestion> getAllSuggestion(){
-        return this.suggestionService.getAllSuggestion();
-    }
-
-    /**
-     * Route qui retourne toutes les suggestions archivés d'un projet
-     * @return
-     */
-    @GetMapping("/archived/list")
-    public List<Suggestion> getAllSuggestionArchived(){
-        return this.suggestionService.getAllSuggestionArchived();
+        return this.suggestionService.getAllSuggestionActive();
     }
 
     /**
@@ -48,17 +39,8 @@ public class SuggestionController {
      * @param id
      * @return
      */
-    @PostMapping("/dashboard/archive/{id}")
+    @PostMapping("/delete/{id}")
     public Suggestion archiveSuggestion(@PathVariable Integer id){
-        return this.suggestionService.archiveSuggestion(id);
-    }
-
-    /**
-     * Route qui permet de faire la suppression d'une suggestion<br>
-     * @param id
-     */
-    @DeleteMapping("/dashboard/delete/{id}")
-    public void deleteSuggestion(@PathVariable Integer id){
-        this.suggestionService.deleteSuggestion(this.suggestionService.bySuggestionId(id));
+        return this.suggestionService.deleteSuggestion(id);
     }
 }
