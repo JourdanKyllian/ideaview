@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgClass} from "@angular/common";
+import {CommonModule, NgClass} from "@angular/common";
 import {IdentificationService} from "../../../services/IdentificationService.service";
 import {IdentificationModel} from "../../../models/identification.model";
 
@@ -11,7 +11,8 @@ import {IdentificationModel} from "../../../models/identification.model";
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    NgClass
+    NgClass,
+    CommonModule
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
@@ -30,20 +31,19 @@ export class LoginPageComponent implements OnInit {
     this.createFormModel();
   }
 
-  private createFormControls() {
+  private createFormControls():void {
     this.email = new FormControl('', Validators.required);
     this.password = new FormControl('', Validators.required);
-    this.loadIdentification();
   }
 
-  private createFormModel() {
+  private createFormModel():void {
     this.formIdentification = new FormGroup({
       email: this.email,
       password: this.password
     });
   }
 
-  submitForm() {
+  submitForm():void {
     if (this.formIdentification.valid) {
       this.identificationService.readIdentification(this.formIdentification.value).subscribe(identification => {
         this.userConnected.emit(identification);
@@ -51,7 +51,7 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  private loadIdentification() {
+  private loadIdentification():void {
     this.identificationService.readIdentification(this.formIdentification.value).subscribe(identification => {
       this.userConnected.emit(identification);
     });

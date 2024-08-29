@@ -11,7 +11,7 @@
       </button>
     </div>
 
-    <div class="modal" id="myModal">
+    <div class="modal" id="myModal" #myModal>
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
 
@@ -68,10 +68,15 @@
       <div class="comment-body">
         <div style="display:flex;justify-content: space-between">
           <h5>{{suggestion.title}}</h5>
-          <i class="bi bi-trash"></i>
+          <i class="bi bi-trash" (click)="suppression(suggestion)"></i>
         </div>
         <p class="comment-text">{{suggestion.content}}</p>
-<!--        <div class="comment-footer"><span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span></div>-->
+        <div class="comment-footer" style="display:flex;justify-content: space-between">
+<!--          <span class="comment-meta">{{suggestion.users.firstname}} {{suggestion.users.lastname}}</span>-->
+          <span class="comment-meta">{{suggestion.dateCreation | date:'HH:mm dd/MM/yyyy'}}</span>
+<!--          <span class="comment-meta">{{formatCreationDate(suggestion.dateCreation)}}</span>-->
+
+        </div>
       </div>
     </div>
 

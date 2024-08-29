@@ -21,3 +21,15 @@
   margin: 5vh 0 0 0;
   padding: 1vh;
 }
+
+/*form {*/
+/*  width: auto; !* Réinitialise la largeur *!*/
+/*  display: block; !* Réinitialise le mode d'affichage *!*/
+/*  flex-direction: initial; !* Réinitialise la direction des flexbox *!*/
+/*  justify-content: initial; !* Réinitialise l'alignement *!*/
+/*  align-items: initial; !* Réinitialise l'alignement des éléments *!*/
+/*  text-align: initial; !* Réinitialise l'alignement du texte *!*/
+/*  background-color: transparent; !* Réinitialise la couleur de fond *!*/
+/*  margin: 0; !* Réinitialise les marges *!*/
+/*  padding: 1rem;*/
+/*}*/

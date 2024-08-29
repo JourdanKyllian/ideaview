@@ -24,12 +24,12 @@ public class SuggestionService {
     }
 
     /**
-     * Méthode qui permet de faire l'affichage d'une suggestion si active = 0<br>
+     * Méthode qui permet de faire l'affichage d'une suggestion si active = true<br>
      * @return
      */
-    public List<Suggestion> getAllSuggestionArchived(){
+    public List<Suggestion> getAllSuggestionActive(){
         List<Suggestion> suggestions = new ArrayList<>();
-        suggestions = this.suggestionRepository.findByActiveIsFalse();
+        suggestions = this.suggestionRepository.findByActiveIsTrue();
         return suggestions;
     }
 
@@ -43,30 +43,13 @@ public class SuggestionService {
     }
 
     /**
-     * Méthode qui archive une suggestion en passant active à false
+     * Methode qui permet de faire l'archive d'une suggestion<br>
      * @param id
      * @return
      */
-    public Suggestion archiveSuggestion(Integer id){
-        Suggestion suggestion = this.suggestionRepository.findById(id).orElse(new Suggestion());
+    public Suggestion deleteSuggestion(Integer id){
+        Suggestion suggestion = this.suggestionRepository.findById(id).get();
         suggestion.setActive(false);
         return this.suggestionRepository.save(suggestion);
-    }
-
-    /**
-     * Méthode qui delete une suggestion
-     * @param suggestion
-     */
-    public void deleteSuggestion(Suggestion suggestion){
-        this.suggestionRepository.delete(suggestion);
-    }
-
-    /**
-     * recupere toute les user d'un projet
-     * @param id
-     * @return
-     */
-    public Suggestion bySuggestionId(Integer id){
-        return this.suggestionRepository.findById(id).orElse(new Suggestion());
     }
 }

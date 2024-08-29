@@ -1,5 +1,6 @@
 package com.project.ideaview.service;
 
+import com.project.ideaview.manager.JwtTokenManager;
 import com.project.ideaview.model.Users;
 import com.project.ideaview.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,4 @@ public class UsersService implements UserDetailsService {
 
         return user;
     }
-
 }
