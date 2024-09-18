@@ -9,7 +9,6 @@
 5. [API Documentation](#api-documentation)
 6. [Technologies](#technologies)
 7. [Contribuer](#contribuer)
-8. [Licence](#licence)
 
 ## Prérequis
 
