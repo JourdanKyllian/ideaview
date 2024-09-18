@@ -41,6 +41,7 @@ Le front-end sera accessible sur http://localhost:4200.
 - mvn install
 - java -jar target/api-0.0.1-SNAPSHOT.jar
 Le back-end sera accessible sur http://localhost:8080.
+```
 
 Utilisation
 
