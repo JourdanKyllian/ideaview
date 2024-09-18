@@ -43,7 +43,7 @@ Le front-end sera accessible sur http://localhost:4200.
 Le back-end sera accessible sur http://localhost:8080.
 ```
 
-Utilisation
+## Utilisation
 
 Lancer le projet localement
 
@@ -63,7 +63,7 @@ Tests Back-end :
 - cd backend/ideaview
 - mvn test
 
-API Documentation
+## API Documentation
 
 L'API REST de IdeaView expose plusieurs endpoints pour gérer les utilisateurs, projet, et commandes. Voici un aperçu des principales routes :
 
@@ -88,7 +88,7 @@ POST /api/suggestion/delete/{id}: Suprimme la suggestion.
 Sécurité des API
 L'authentification des routes protégées est gérée via des JWT (JSON Web Tokens). Assurez-vous de bien configurer les tokens dans les requêtes pour accéder aux routes sécurisées.
 
-Technologies
+## Technologies
 
 Le projet IdeaView utilise les technologies suivantes :
 
@@ -98,7 +98,7 @@ Base de données : Postgresql
 Authentification : JSON Web Tokens (JWT)
 Sécurité : Spring Security, SSL/TLS pour HTTPS, BCrypt pour le hachage des mots de passe
 
-Contribuer
+## Contribuer
 
 Les contributions sont les bienvenues ! Pour contribuer :
 
